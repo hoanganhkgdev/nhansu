@@ -21,7 +21,6 @@ class OfficialImporter
         'birthday' => 'Ngày sinh',
         'member_code' => 'Mã số',
         'resident' => 'Địa chỉ thường trú',
-        'part' => 'Tỉnh/Thành',
         'position' => 'Chức vụ',
         'precept_rank' => 'Giới phẩm',
         'clergy_rank' => 'Giáo phẩm',
@@ -37,7 +36,7 @@ class OfficialImporter
     /** Other accepted header spellings (normalised) -> field. */
     private const ALIASES = [
         'hoten' => 'fullname', 'hovaten' => 'fullname', 'phapdanh' => 'dharma_name', 'ngaythangnamsinh' => 'birthday',
-        'maso' => 'member_code', 'diachi' => 'resident', 'noithuongtru' => 'resident', 'tinh' => 'part',
+        'maso' => 'member_code', 'diachi' => 'resident', 'noithuongtru' => 'resident', 'tinh' => 'part', 'tinhthanh' => 'part',
         'thanhpho' => 'part', 'donvi' => 'part', 'tinhthanhpho' => 'part', 'trinhdo' => 'education',
         'dienthoai' => 'phone', 'sodienthoai' => 'phone', 'cmnd' => 'id_number', 'cccd' => 'id_number',
         'socmnd' => 'id_number', 'ngaycapcmnd' => 'id_issued_date', 'noicap' => 'id_issued_place', 'uutien' => 'is_priority',
