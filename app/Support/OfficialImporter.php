@@ -19,7 +19,6 @@ class OfficialImporter
         'fullname' => 'Họ và tên',
         'dharma_name' => 'Pháp danh',
         'birthday' => 'Ngày sinh',
-        'member_code' => 'Mã số',
         'resident' => 'Địa chỉ thường trú',
         'position' => 'Chức vụ',
         'precept_rank' => 'Giới phẩm',
