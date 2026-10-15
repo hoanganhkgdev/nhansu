@@ -82,7 +82,7 @@ class OfficialImporter
                     continue;
                 }
 
-                if (implode('', array_map(fn ($v) => trim((string) $v), $cells)) === '') {
+                if (implode('', array_map(fn ($v) => $this->text($v), $cells)) === '') {
                     continue;
                 }
 
@@ -122,7 +122,7 @@ class OfficialImporter
 
         $map = [];
         foreach ($cells as $i => $v) {
-            $n = self::norm((string) $v);
+            $n = self::norm($this->text($v));
             if (isset($byNorm[$n])) {
                 $map[$i] = $byNorm[$n];
             }
