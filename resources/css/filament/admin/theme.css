@@ -67,6 +67,11 @@
     border-top: 3px solid #009444;
 }
 
+/* Section "not-contained" chỉ là khung bọc, không được đổ bóng (nếu không sẽ có đường nối giữa các thẻ) */
+.fi-section.fi-section-not-contained {
+    box-shadow: none;
+}
+
 /* Tách các thẻ thống kê khỏi phần bên dưới */
 .fi-wi-stats-overview {
     margin-bottom: 1rem;
