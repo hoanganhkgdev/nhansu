@@ -22,7 +22,7 @@ class PartsTable
         $max = fn () => (int) Part::withCount('officials')->get()->max('officials_count');
 
         return $table
-            ->defaultSort('title')
+            ->defaultSort('id', 'desc')
             ->columns([
                 TextColumn::make('title')->label('Tên')->weight('semibold')
                     ->description(fn (Part $p) => $p->slug)
