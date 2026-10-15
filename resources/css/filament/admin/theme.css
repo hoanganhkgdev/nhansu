@@ -67,6 +67,11 @@
     border-top: 3px solid #009444;
 }
 
+/* Tách các thẻ thống kê khỏi phần bên dưới */
+.fi-wi-stats-overview {
+    margin-bottom: 1rem;
+}
+
 .fi-wi-stats-overview-stat-value {
     letter-spacing: -0.02em;
 }
