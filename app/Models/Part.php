@@ -10,8 +10,19 @@ use Illuminate\Support\Str;
 #[Fillable(['title', 'slug', 'office', 'address', 'phone', 'fax', 'website', 'email', 'note', 'is_active'])]
 class Part extends Model
 {
+    /** Text columns are NOT NULL (default ''), but form inputs submit null when left empty. */
+    private const TEXT_COLUMNS = ['office', 'address', 'phone', 'fax', 'website', 'email'];
+
     protected static function booted(): void
     {
+        static::saving(function (self $part) {
+            foreach (self::TEXT_COLUMNS as $column) {
+                if (array_key_exists($column, $part->getAttributes()) && $part->getAttribute($column) === null) {
+                    $part->setAttribute($column, '');
+                }
+            }
+        });
+
         static::creating(function (self $part) {
             if (empty($part->slug)) {
                 $base = Str::slug($part->title) ?: 'don-vi';
