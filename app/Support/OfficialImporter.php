@@ -170,9 +170,22 @@ class OfficialImporter
             $existing->update(array_filter($data, fn ($v) => $v !== '' && $v !== null));
             $result['updated']++;
         } else {
+            if ($data['member_code'] === '') {
+                $data['member_code'] = $this->uniqueMemberCode();
+            }
             Official::create($data + ['is_active' => true]);
             $result['created']++;
         }
+    }
+
+    /** Random 10-digit code (no leading zero) that no other official uses. */
+    private function uniqueMemberCode(): string
+    {
+        do {
+            $code = (string) random_int(1_000_000_000, 9_999_999_999);
+        } while (Official::where('member_code', $code)->exists());
+
+        return $code;
     }
 
     private function resolvePart(string $value): ?int
